@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#173f36"><meta name="description" content="Научись собирать кубик Рубика методом Фридрих. Пошаговый курс CFOP, 57 OLL, 21 PLL, интерактивный тренажёр и таймер.">
+ <title>CFOP Academy — от первого креста до полной сборки</title>
+ <script src="./theme.js"></script>
+ <link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+ <a class="skip" href="#main">Перейти к содержимому</a>
+ <aside class="sidebar">
+  <a href="#home" class="brand"><span class="brand-icon">▦</span><span>CFOP<span class="brand-sub">ACADEMY</span></span></a>
+  <div class="sidebar-label">ТВОЙ ПУТЬ К СБОРКЕ</div>
+  <nav aria-label="Основная навигация">
+   <a href="#home" data-nav="home"><span>⌂</span>Обзор курса</a>
+   <a href="#course" data-nav="course"><span>▤</span>Уроки<span class="nav-count">13</span></a>
+   <a href="#algorithms" data-nav="algorithms"><span>▦</span>Алгоритмы<span class="nav-count">78</span></a>
+   <a href="#trainer" data-nav="trainer"><span>◇</span>Тренажёр</a>
+   <a href="#timer" data-nav="timer"><span>◷</span>Таймер</a>
+   <a href="#progress" data-nav="progress"><span>↗</span>Мой прогресс</a>
+  </nav>
+  <div class="sidebar-bottom"><div class="mini-cube">✦</div><strong>Каждый ход — ближе.</strong><p>15 минут практики сегодня<br>лучше, чем идеальный план.</p><span class="local-badge"><i></i> Прогресс на этом устройстве</span></div>
+ </aside>
+ <div class="workspace"><header class="topbar"><span id="breadcrumb">Обзор курса</span><span class="top-right"><span class="top-course"><span class="level-dot"></span> Курс для кубика 3×3</span><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить тёмную тему" title="Включить тёмную тему"><span aria-hidden="true">☾</span><span class="theme-label">Тёмная тема</span></button><span class="avatar">Ты</span></span></header><main id="main" tabindex="-1"></main><footer>CFOP Academy <span>Учись понимать кубик.</span><a href="#sources">Материалы и источники ↗</a></footer></div>
+ <dialog id="lesson-dialog" aria-labelledby="lesson-title"><button class="dialog-close" aria-label="Закрыть урок">×</button><div id="lesson-body"></div></dialog>
+ <div id="toast" role="status" aria-live="polite"></div>
+ <script type="module" src="./app.js"></script>
+</body>
+</html>
