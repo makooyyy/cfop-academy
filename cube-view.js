@@ -40,12 +40,12 @@ export function cubeFaces(cube,token=null,progress=0){
  return faces.sort((a,b)=>a.depth-b.depth);
 }
 
-export function animatedCubeSVG(cube,token=null,progress=0){
+export function animatedCubeSVG(cube,token=null,progress=0,palette=colors){
  const faces=cubeFaces(cube,token,progress);
  const polygons=faces.map(face=>{
   const points=face.points.map(p=>project(p).map(n=>n.toFixed(2)).join(',')).join(' ');
   if(!face.color)return `<polygon points="${points}" fill="#152320" stroke="#23352e" stroke-width=".7" stroke-linejoin="round"/>`;
-  return `<polygon points="${points}" fill="${colors[face.color]}" stroke="${colors[face.color]}" stroke-width="2.4" stroke-linejoin="round"/><polygon points="${points}" fill="#102019" opacity="${face.shade.toFixed(3)}" pointer-events="none"/>`;
+  return `<polygon points="${points}" fill="${palette[face.color]}" stroke="${palette[face.color]}" stroke-width="2.4" stroke-linejoin="round"/><polygon points="${points}" fill="#102019" opacity="${face.shade.toFixed(3)}" pointer-events="none"/>`;
  }).join('');
  return `<svg class="animated-cube" viewBox="0 0 360 360" role="img" aria-label="${token?'Плавный поворот '+escape(token):'Кубик Рубика'}"><ellipse class="cube-ground" cx="180" cy="327" rx="97" ry="12" fill="#152820" opacity=".12"/>${polygons}</svg>`;
 }
