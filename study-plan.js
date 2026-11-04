@@ -1,3 +1,4 @@
+import {readLearning,writeLearning,rateDay,RATINGS} from './learning-state.js';
 import {studyDays,weeks,studyProtocol,planSources} from './curriculum.js';
 import {algorithms} from './algorithms.js';
 import {lessons,examples} from './lessons.js';
@@ -17,7 +18,7 @@ function download(content,name,type){const url=URL.createObjectURL(new Blob([con
 
 export function renderStudyPlan(main,requestedDay,toast){
  const selected=studyDays.some(d=>d.id===requestedDay)?requestedDay:nextDay(model)||model.selectedDay;
- model.selectedDay=selected;
+ model.selectedDay=selected;persist();
  const day=studyDays[selected-1],week=weeks[day.week-1],entry=dayProgress(model,selected),done=completeCount(),next=nextDay(model),today=todayKey();
  const calendar=model.startDate?addDays(model.startDate,selected-1):'';
  main.innerHTML=`<div id="study-plan">
@@ -31,8 +32,9 @@ export function renderStudyPlan(main,requestedDay,toast){
  ${selected>1&&!model.days[selected-1]?.completed?'<p class="plan-caution">Можно посмотреть любой день. Если предыдущая тема ещё не освоена, сначала вернись к ней — новые задания опираются на пройденное.</p>':''}
  <div class="plan-resources"><span>Материалы дня</span>${day.lessonIds.map(id=>`<button class="plan-resource" data-lesson="${id}">▤ ${esc(lessons.find(l=>l.id===id).title)}</button>`).join('')}${selected===1?'<a class="plan-resource" href="#cube-settings">◈ Настроить цвета кубика</a>':''}${selected>=40?'<a class="plan-resource" href="#timer">◷ Открыть таймер</a>':''}</div>
  ${day.caseIds.length?`<div class="plan-cases"><p>${day.newAlgorithms.length?'Новые случаи выделены. Каждая кнопка открывает подготовку, затем решение.':'Случаи для практики. Кнопка открывает подготовку из собранного кубика.'}</p><div>${day.caseIds.map(id=>`<button data-train="${id}" class="${day.newAlgorithms.includes(id)?'new-case':''}">${esc(caseById.get(id).name)}${day.newAlgorithms.includes(id)?'<small>новый</small>':''} ↗</button>`).join('')}</div></div>`:''}
- <ol class="plan-tasks">${day.tasks.map((t,i)=>`<li><label class="plan-task-check"><input type="checkbox" data-plan-task="${i}" ${entry.checked.includes(i)?'checked':''}><span class="task-number">${i+1}</span><span><strong>${esc(t.title)}</strong><small>${t.minutes} мин</small></span></label><p>${esc(t.text)}</p></li>`).join('')}</ol>
+ <ol class="plan-tasks">${day.tasks.map((t,i)=>`<li id="plan-task-${i}"><label class="plan-task-check"><input type="checkbox" data-plan-task="${i}" ${entry.checked.includes(i)?'checked':''}><span class="task-number">${i+1}</span><span><strong>${esc(t.title)}</strong><small>${t.minutes} мин</small></span></label><p>${esc(t.text)}</p></li>`).join('')}</ol>
  <section class="plan-criterion"><span class="eyebrow">КАК ПОНЯТЬ, ЧТО ПОЛУЧИЛОСЬ</span><p>${esc(day.criterion)}</p><label><input type="checkbox" id="plan-goal" ${entry.goal?'checked':''}> Я проверил критерий и могу подтвердить результат</label></section>
+ <section class="day-assessment learning-card"><h3>Как прошло занятие?</h3><p>Оцени после практики. Эта оценка не заменяет проверку критерия дня.</p><div class="assessment-buttons"> ${Object.entries(RATINGS).map(([value,label])=> '<button class="secondary" data-day-rating="'+value+'" aria-pressed="'+(readLearning().ratings[selected]?.value===value)+'">'+label+'</button>').join('')}</div><p class="assessment-advice"> ${readLearning().ratings[selected]?.value==='repeat'?'Следующее занятие — 15 минут закрепления этого дня: 3 минуты разбора ошибки, 9 минут медленных повторов, 3 минуты самостоятельной проверки. Новые темы можно отложить. После практики оцени уверенность заново.':readLearning().ratings[selected]?.value==='guided'?'Перед новой темой выдели 5 минут: повтори трудный фрагмент без формулы. Для уже введённых случаев этого дня ближайшее повторение назначено не позднее чем через 3 дня.':'Уверенный результат сохраняет обычные интервалы повторения. После ошибки уже введённые случаи вернутся завтра.'}</p></section>
  <details class="plan-rescue"><summary>Не получается — что делать</summary><p>${esc(day.rescue)}</p><p>${studyProtocol.short}</p><button class="text-link" data-lesson="first-solve">Восстановить кубик с подсказками →</button></details>
  <label class="plan-note-label" for="plan-note">Дневник этого дня <span>Что получилось, где остановился, что повторить</span></label><textarea id="plan-note" rows="4" maxlength="3000" placeholder="Например: 4 из 5 крестов верно. Путаю направление U′. Завтра начну с него.">${esc(entry.note)}</textarea><p id="plan-save-status" class="plan-save-status" role="status">${storageProblem?'Браузер не разрешил прочитать или сохранить прогресс. Скачай дневник перед закрытием.':'Записи и отметки хранятся в этом браузере.'}</p>
  <div class="plan-day-bottom"><button class="${entry.completed?'secondary':'primary'}" id="complete-plan-day" data-plan-action="complete" ${!entry.completed&&!readyToComplete(model,selected)?'disabled':''}>${entry.completed?'✓ День завершён · вернуть в работу':'Завершить день '+selected}</button><span id="plan-completion-help">${entry.completed?'Завершён '+dateLabel(entry.completed):'Сначала отметь 4 задания и проверь критерий.'}</span></div>
@@ -65,6 +67,7 @@ export function renderStudyPlan(main,requestedDay,toast){
  root.querySelector('#plan-note').addEventListener('input',e=>{entry.note=e.target.value;saveFeedback();});
  root.addEventListener('click',e=>{
   const button=e.target.closest('button');if(!button)return;
+  if(button.dataset.dayRating){const learning=readLearning();rateDay(model,learning,selected,button.dataset.dayRating);try{writeLearning(learning);persist();renderStudyPlan(main,selected,toast);toast('Оценка сохранена. Рекомендация и повторы обновлены.');}catch{toast('Не удалось сохранить оценку.');}return;}
   if(button.dataset.review){recordReview(model,button.dataset.review,button.dataset.remembered==='yes');saveFeedback();renderReviews();return;}
   const action=button.dataset.planAction;
   if(action==='complete'){

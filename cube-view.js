@@ -34,18 +34,22 @@ export function cubeFaces(cube,token=null,progress=0){
    const center=transform(position.map((v,i)=>v+normal[i]*.487));
    faces.push({points:makePoints(.482,.485),normal:n,depth:dot(center,view),color:null,shade:Math.max(0,.13*(1-light/1.65))});
    const color=stickers.get(`${position}|${normal}`);
-   if(color)faces.push({points:makePoints(.405,.494),normal:n,depth:dot(center,view)+.012,color,shade:Math.max(0,.2*(1-light/1.65))});
+   if(color)faces.push({points:makePoints(.405,.494),normal:n,depth:dot(center,view)+.012,color,position,shade:Math.max(0,.2*(1-light/1.65))});
   }
  }
  return faces.sort((a,b)=>a.depth-b.depth);
 }
 
-export function animatedCubeSVG(cube,token=null,progress=0,palette=colors){
- const faces=cubeFaces(cube,token,progress);
+export function animatedCubeSVG(cube,token=null,progress=0,palette=colors,options={}){
+ const faces=cubeFaces(cube,token,progress),spec=options.highlightToken?describeMove(options.highlightToken):null;
+ const pieces=new Map();for(const sticker of cube){const key=sticker.p.join(',');pieces.set(key,(pieces.get(key)||'')+sticker.color);}
+ const focus=(options.focusColors||[]).map(s=>[...s].sort().join(''));
+ const highlighted=new Set([...pieces].filter(([,v])=>focus.includes([...v].sort().join(''))).map(([p])=>p));
  const polygons=faces.map(face=>{
   const points=face.points.map(p=>project(p).map(n=>n.toFixed(2)).join(',')).join(' ');
   if(!face.color)return `<polygon points="${points}" fill="#152320" stroke="#23352e" stroke-width=".7" stroke-linejoin="round"/>`;
-  return `<polygon points="${points}" fill="${palette[face.color]}" stroke="${palette[face.color]}" stroke-width="2.4" stroke-linejoin="round"/><polygon points="${points}" fill="#102019" opacity="${face.shade.toFixed(3)}" pointer-events="none"/>`;
+  const active=spec&&inTurnLayer(face.position,spec),pair=highlighted.has(face.position.join(','));
+  return `<polygon points="${points}" fill="${palette[face.color]}" stroke="${palette[face.color]}" stroke-width="2.4" stroke-linejoin="round"/><polygon points="${points}" fill="#102019" opacity="${face.shade.toFixed(3)}" pointer-events="none"/>${active||pair?`<polygon points="${points}" fill="none" stroke="${pair?'#ffcc66':'#d8eaff'}" stroke-width="${pair?4:2.5}" stroke-dasharray="${pair?'none':'5 3'}" stroke-linejoin="round"/>`: ''}`;
  }).join('');
  return `<svg class="animated-cube" viewBox="0 0 360 360" role="img" aria-label="${token?'Плавный поворот '+escape(token):'Кубик Рубика'}"><ellipse class="cube-ground" cx="180" cy="327" rx="97" ry="12" fill="#152820" opacity=".12"/>${polygons}</svg>`;
 }
