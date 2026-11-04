@@ -9,7 +9,7 @@ import {ReleaseTimerKeys,acceptsTimerKey} from './timer-keys.js';
 import {colors,DEFAULT_COLORS,FACE_LABELS,STANDARD_NAMES,PALETTE_KEY,setCubePalette,isCustomPalette} from './cube-palette.js';
 import {GuidedPractice,moveInstruction} from './trainer-guide.js';
 import {renderCubeSettings} from './cube-settings.js';
-import {renderStudyPlan,planSummary} from './study-plan.js?v=learn-1';
+import {renderStudyPlan,planSummary} from './study-plan.js?v=learn-2';
 try{const stored=localStorage.getItem(PALETTE_KEY);if(stored)setCubePalette(JSON.parse(stored));}catch{setCubePalette(DEFAULT_COLORS);}
 const $=s=>document.querySelector(s), main=$('#main'),key='cfop-academy-v1';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
