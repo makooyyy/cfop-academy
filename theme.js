@@ -5,7 +5,7 @@
  function applyTheme(theme){
   document.documentElement.dataset.theme=theme;
   const dark=theme==='dark',button=document.getElementById('theme-toggle');
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#101c19':'#173f36');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#0d111b':'#f4f6fa');
   if(button){
    const label=dark?'Включить светлую тему':'Включить тёмную тему';
    button.setAttribute('aria-label',label);button.title=label;

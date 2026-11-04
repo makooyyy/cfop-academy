@@ -1,0 +1,281 @@
+/* CFOP Academy / Studio. Shared semantic colours across every route. */
+:root[data-theme="light"]{--bg:#f4f6fa;--paper:#fff;--ink:#182338;--muted:#59677e;--line:#dce2ec;--green:#315deb;--light:#eaf0ff;--accent:#315deb;--accent-ink:#fff;--hover:#e9edf5;--success:#167452;--success-bg:#e3f5ed;--warning:#9d4924;--shadow:0 8px 30px #18233806;--canvas:#edf1f8}
+:root[data-theme="dark"]{--bg:#0d111b;--paper:#151d2c;--ink:#edf2ff;--muted:#a6b3cb;--line:#2b374d;--green:#88aaff;--light:#202e4c;--accent:#88aaff;--accent-ink:#0c1b3d;--hover:#202b3e;--success:#77ddba;--success-bg:#173b35;--warning:#ffba93;--shadow:0 8px 30px #00000012;--canvas:#101724}
+html[data-theme]{font-family:Manrope,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);font-size:15px}
+html[data-theme] body{background:var(--bg)}
+html[data-theme] h1{font-size:clamp(32px,3.4vw,48px);font-weight:800;letter-spacing:-.055em;line-height:1.13}
+html[data-theme] h2,html[data-theme] h3{color:var(--ink);letter-spacing:-.035em}
+html[data-theme] p{color:var(--muted)}
+html[data-theme] .workspace{margin-left:236px}
+html[data-theme] main{padding:36px 40px 48px;max-width:1500px}
+html[data-theme] .topbar{height:72px;background:var(--bg);padding:0 40px;color:var(--muted);font-size:12px}
+html[data-theme] .sidebar{width:236px;background:var(--paper);border-color:var(--line);padding:29px 18px 22px;overflow-y:auto;scrollbar-width:thin}
+html[data-theme] .brand{font-size:25px;gap:11px;margin:0 12px 39px;color:var(--ink)}
+html[data-theme] .brand-icon{background:#315deb;color:white;width:43px;height:46px;border-radius:13px;box-shadow:0 5px 12px #315deb24;flex-shrink:0}
+.brand-icon svg{width:30px;height:32px}.brand-icon svg *{vector-effect:non-scaling-stroke}
+html[data-theme] .brand-sub{font-size:9px;letter-spacing:3.6px;color:var(--muted)}
+html[data-theme] .sidebar-label{font-size:10px;letter-spacing:1.4px;color:var(--muted);margin-left:13px}
+html[data-theme] .sidebar nav{gap:5px}
+html[data-theme] .sidebar nav a{font-size:13px;font-weight:650;min-height:47px;gap:11px;border-radius:10px;padding:12px 13px;color:var(--muted);border:1px solid transparent}
+html[data-theme] .sidebar nav a>span:first-child{color:inherit;width:20px;height:20px;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.sidebar nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+html[data-theme] .sidebar nav a:hover{background:var(--hover);color:var(--ink)}
+html[data-theme] .sidebar nav a.active{background:var(--light);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 18%,transparent)}
+html[data-theme] :is(.nav-count,.avatar){background:var(--canvas);color:var(--muted);font-size:11px}
+html[data-theme] .sidebar-bottom{padding:25px 13px 0;min-height:170px}
+html[data-theme] .mini-cube{font-size:24px;color:var(--accent);margin-bottom:12px}
+html[data-theme] .sidebar-bottom strong{font-size:12px}
+html[data-theme] .sidebar-bottom p{font-size:11px}
+html[data-theme] .local-badge{color:var(--muted);font-size:9px;margin-top:19px}
+html[data-theme] :is(.local-badge i,.green-dot,.level-dot,.top-right .level-dot){background:var(--success)}
+html[data-theme] .theme-toggle{background:var(--paper);color:var(--ink);border-color:var(--line);min-height:38px;font-size:11px;border-radius:10px;padding:8px 12px}
+html[data-theme] .theme-toggle:hover{background:var(--hover)}
+html[data-theme] .eyebrow{font-size:10px;letter-spacing:1.65px;color:var(--muted);margin-bottom:13px;font-weight:750}
+html[data-theme] .page-heading{gap:25px;margin-bottom:29px}
+html[data-theme] .page-heading p{font-size:14px;line-height:1.8;max-width:730px}
+html[data-theme] :is(.primary,.secondary){border-radius:10px;font-size:13px;font-weight:750;min-height:46px;gap:15px;padding:13px 19px;transition:background .16s,transform .16s,box-shadow .16s}
+html[data-theme] .primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 4px 12px color-mix(in srgb,var(--accent) 15%,transparent)}
+html[data-theme] .primary:hover{background:color-mix(in srgb,var(--accent) 87%,var(--ink));transform:translateY(-1px)}
+html[data-theme] .secondary{background:var(--paper);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+html[data-theme] .secondary:hover{background:var(--hover);border-color:var(--muted)}
+html[data-theme] :is(.text-link,.section-heading>a,.overview-strip>a,.card-action,.sources-card a,.trainer-plan-back,.plan-day-navigation){color:var(--accent);font-size:13px}
+html[data-theme] :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+html[data-theme] .skip{background:var(--paper);color:var(--accent)}
+/* Home: an expressive cube canvas, followed by a practical learning path. */
+html[data-theme] .hero{background:#142346;border:1px solid #263961;border-radius:24px;grid-template-columns:1.15fr 1fr;min-height:400px;color:#f5f8ff;isolation:isolate}
+html[data-theme] .hero-copy{padding:36px 38px;z-index:2}
+html[data-theme] .hero h2{font-size:clamp(33px,3.1vw,45px);line-height:1.13;color:#f5f8ff;margin:24px 0 17px;letter-spacing:-.045em}
+html[data-theme] .hero h2 em{font-style:normal;color:#9cbbff}
+html[data-theme] .hero p{font-size:14px;line-height:1.85;color:#becae2;max-width:420px;margin-bottom:24px}
+html[data-theme] .hero .pill{background:#ffffff0c;border:1px solid #ffffff25;color:#dce6ff;font-size:10px;letter-spacing:1.15px;border-radius:100px;padding:7px 11px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+html[data-theme] .hero .primary{background:#dce7ff;color:#142346;box-shadow:none;margin:0;font-size:13px;min-height:48px}
+html[data-theme] .hero .primary:hover{background:white}
+html[data-theme] .hero :focus-visible{outline-color:#9cbbff}
+html[data-theme] .hero-secondary{display:inline-flex;align-items:center;gap:12px;color:#e1eaff;font-size:13px;font-weight:650;padding:13px 5px;min-height:46px}
+html[data-theme] .hero-meta{color:#b8c7e4;font-size:11px;margin-top:25px;gap:22px;display:flex}
+html[data-theme] .hero-meta span:before{color:#92d8bf}
+html[data-theme] .hero-art{min-height:380px;background:radial-gradient(ellipse at 55% 45%,#4d70be28,transparent 66%)}
+html[data-theme] .hero-art:before{content:'';position:absolute;inset:0;opacity:.18;background-image:radial-gradient(#bbd3ff 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse,black 20%,transparent 72%)}
+html[data-theme] .hero-art>svg{width:310px;max-width:88%;margin:5px 0 22px;filter:drop-shadow(0 28px 20px #0005);transform:rotate(-7deg)}
+html[data-theme] .orbit{border-color:#aec8ff20;width:295px;height:295px;transform:rotate(-18deg);border-radius:38px}
+html[data-theme] .orbit-two{width:365px;height:365px;border-color:#aec8ff10;transform:rotate(15deg)}
+html[data-theme] .art-label{background:#1d3156;border-color:#526b943f;color:#dce8ff;font-size:11px;padding:8px 11px;border-radius:9px;box-shadow:0 4px 20px #0002}
+html[data-theme] .label-u{top:30px;right:28px}
+html[data-theme] .label-f{left:10px;bottom:67px}
+html[data-theme] .label-r{right:17px;bottom:108px}
+html[data-theme] .art-caption{color:#b3c5e8;font-size:10px;bottom:22px;letter-spacing:.5px}
+html[data-theme] .hero-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;margin-bottom:30px}
+.hero-facts>div{display:flex;align-items:center;gap:15px;padding:20px 23px;border:1px solid var(--line);background:var(--paper);border-radius:14px}
+.hero-facts strong{font-size:29px;line-height:1;letter-spacing:-1.3px;font-weight:750}.hero-facts span{font-size:12px;line-height:1.6;color:var(--muted)}
+html[data-theme] :is(.overview-strip,.stage-card,.tip-card,.lesson-row,.alg-card,.simulator,.timer-card,.history-table,.progress-card,.sources-card,.plan-day,.plan-reviews,.plan-guide,.plan-roadmap,.palette-editor){background:var(--paper);border-color:var(--line);box-shadow:var(--shadow)}
+html[data-theme] .overview-strip{border-radius:14px;padding:21px 24px;margin:24px 0 34px}
+html[data-theme] .overview-strip strong{font-size:13px}
+html[data-theme] .overview-strip p{font-size:12px}
+html[data-theme] .progress-line{background:var(--hover);height:6px}
+html[data-theme] .progress-line span{background:var(--accent)}
+html[data-theme] .strip-icon{background:var(--light);color:var(--accent)}
+html[data-theme] .section-heading h2{font-size:26px;margin-bottom:8px}
+html[data-theme] .section-heading p{font-size:13px}
+html[data-theme] .stage-grid{gap:16px}
+html[data-theme] .stage-card{padding:23px 20px;border-radius:17px;position:relative;border-top:3px solid var(--stage-color);overflow:hidden}
+html[data-theme] .stage-card:hover{border-color:var(--stage-color);box-shadow:0 10px 25px #18233812;transform:translateY(-4px)}
+html[data-theme] .mint{--stage-color:#23a57e;--stage-soft:#e0f6ed;--stage-ink:#12664b}
+html[data-theme] .peach{--stage-color:#e27a41;--stage-soft:#fff0e5;--stage-ink:#97501e}
+html[data-theme] .yellow{--stage-color:#d2a52b;--stage-soft:#fff6d6;--stage-ink:#886514}
+html[data-theme] .lavender{--stage-color:#8870df;--stage-soft:#eee9ff;--stage-ink:#6651ac}
+html[data-theme="dark"] .mint{--stage-soft:#173b35;--stage-ink:#79dfbc}
+html[data-theme="dark"] .peach{--stage-soft:#3e2b24;--stage-ink:#ffb282}
+html[data-theme="dark"] .yellow{--stage-soft:#383321;--stage-ink:#ebcf7d}
+html[data-theme="dark"] .lavender{--stage-soft:#2e2844;--stage-ink:#bea9ff}
+html[data-theme] .stage-card .stage-symbol{background:var(--stage-soft);color:var(--stage-ink);width:49px;height:49px;font-size:28px;border-radius:12px;margin:24px 0 18px}
+html[data-theme] .stage-card h3{font-size:17px;white-space:normal;line-height:1.35}
+html[data-theme] :is(.stage-en,.stage-top){color:var(--muted)}
+html[data-theme] .stage-en{font-size:9px;letter-spacing:1px}
+html[data-theme] .stage-card p{font-size:12px;line-height:1.8;min-height:65px;margin-bottom:19px}
+html[data-theme] .stage-link{font-size:11px;color:var(--stage-ink);border-color:var(--line)}
+html[data-theme] .practice-callout{background:var(--light);border-color:var(--line);border-radius:17px}
+html[data-theme] .practice-art{color:var(--accent);border-color:var(--accent);font-size:19px}
+html[data-theme] :is(.practice-callout p,.tip-card p){font-size:13px}
+html[data-theme] .tip-star{color:#d2a52b}
+html[data-theme] footer{padding:24px 40px;font-size:11px;color:var(--muted);gap:16px}
+/* Reading, library, diagrams and feedback. */
+html[data-theme] .lesson-row{padding:23px 22px;border-radius:13px;transition:background .16s,border-color .16s}
+html[data-theme] .lesson-row:hover{background:var(--hover);border-color:var(--accent)}
+html[data-theme] .lesson-info strong{font-size:16px}
+html[data-theme] .lesson-info small{font-size:10px;color:var(--accent)}
+html[data-theme] .lesson-info>span{font-size:12px;color:var(--muted)}
+html[data-theme] :is(.lesson-index,.lesson-section>span,.face-badge){background:var(--light);color:var(--accent)}
+html[data-theme] :is(.lesson-index.done,.learn-toggle.is-learned){background:var(--success-bg);color:var(--success)}
+html[data-theme] :is(.course-note,.trainer-panel,.timer-stats>div,.palette-preview-card){background:var(--paper);border:1px solid var(--line);border-radius:17px}
+html[data-theme] :is(.course-note p,.trainer-panel details p,.small-text,.info-note p){font-size:13px;color:var(--muted)}
+html[data-theme] .course-note .progress-line{background:var(--hover)}
+html[data-theme] .segmented{background:var(--hover);border-radius:11px;padding:4px}
+html[data-theme] .segmented button{font-size:13px;min-height:40px;padding:10px 16px;color:var(--muted)}
+html[data-theme] .segmented .selected{background:var(--paper);color:var(--accent);box-shadow:0 2px 6px #0000000c}
+html[data-theme] .search-label{background:var(--paper);border-color:var(--line);min-height:49px;border-radius:10px}
+html[data-theme] .search-label input{font-size:14px;color:var(--ink)}
+html[data-theme] :is(input,textarea)::placeholder{color:var(--muted);opacity:1}
+html[data-theme] .check{font-size:12px;color:var(--muted);white-space:normal;line-height:1.6}
+html[data-theme] input[type="checkbox"]{accent-color:var(--accent);width:17px;height:17px;flex-shrink:0}
+html[data-theme] .info-note{background:var(--light);color:var(--muted);border-color:var(--line);font-size:13px;line-height:1.85;padding:18px 20px;border-radius:12px}
+html[data-theme] .result-count{font-size:13px}
+html[data-theme] .alg-card{padding:22px;border-radius:16px}
+html[data-theme] .case-type{font-size:10px;color:var(--accent);font-weight:750}
+html[data-theme] .learn-toggle{font-size:11px;min-height:35px;background:var(--canvas);color:var(--muted)}
+html[data-theme] .alg-title h3{font-size:21px}
+html[data-theme] .alg-title>span{font-size:12px;color:var(--muted)}
+html[data-theme] .alg-card>code{background:var(--canvas);color:var(--ink);font-size:13px;padding:14px;border:1px solid var(--line);line-height:1.9;min-height:78px}
+html[data-theme] .card-action{border-color:var(--line);min-height:44px;font-size:12px}
+html[data-theme] .cube-net .face-label{fill:var(--muted)}
+html[data-theme] .empty{background:var(--paper);border-color:var(--line);color:var(--muted)}
+html[data-theme] dialog{background:var(--paper);border-color:var(--line);color:var(--ink);padding:40px;border-radius:20px;box-shadow:0 25px 100px #0005}
+html[data-theme] dialog::backdrop{background:#080f22a8;backdrop-filter:blur(7px)}
+html[data-theme] .dialog-close{background:var(--hover);color:var(--ink);width:36px;height:36px}
+html[data-theme] :is(.lesson-intro,.lesson-section p){font-size:15px;line-height:1.95;color:var(--muted)}
+html[data-theme] .lesson-section h3{font-size:19px}
+html[data-theme] .lesson-demo{background:var(--canvas);border-color:var(--line)}
+html[data-theme] .lesson-demo p{font-size:13px}
+html[data-theme] :is(.practice-box,.color-reference){background:var(--light);border-color:var(--line)}
+html[data-theme] .practice-box p{font-size:14px;color:var(--muted)}
+html[data-theme] .quiz>p{font-size:14px}
+html[data-theme] .quiz-option{background:var(--paper);border-color:var(--line);color:var(--ink);font-size:14px;padding:15px}
+html[data-theme] .quiz-option:hover{background:var(--hover)}
+html[data-theme] .quiz-option.answer-correct{background:var(--success-bg);border-color:var(--success)}
+html[data-theme] .correct{color:var(--success)}
+html[data-theme] :is(.incorrect,#custom-error){color:var(--warning)}
+html[data-theme] #toast{background:var(--ink);color:var(--bg);font-size:13px;border-radius:12px}
+/* Simulator, timer and personal palette. */
+html[data-theme] .simulator{border-radius:20px;padding:25px}
+html[data-theme] .pill{background:var(--light);color:var(--accent);border-color:var(--line);font-size:10px;padding:7px 11px;border-radius:7px}
+html[data-theme] .trainer-steps{background:var(--paper);border-color:var(--line);border-radius:14px;padding:20px 24px}
+html[data-theme] .trainer-steps :is(strong,small){color:var(--ink)}
+html[data-theme] .trainer-steps strong{font-size:14px}
+html[data-theme] .trainer-steps small{font-size:12px;color:var(--muted)}
+html[data-theme] .trainer-steps>div>span{background:var(--hover);color:var(--muted)}
+html[data-theme] .trainer-steps .active>span{background:var(--accent);color:var(--accent-ink)}
+html[data-theme] .trainer-steps .completed>span{background:var(--success-bg);color:var(--success)}
+html[data-theme] .trainer-steps .locked{opacity:1}
+html[data-theme] .phase-arrow{color:var(--muted)}
+html[data-theme] .stage-intro{background:var(--canvas);border-color:var(--line);padding:17px 19px}
+html[data-theme] .stage-intro strong{font-size:13px;color:var(--ink)}
+html[data-theme] .stage-intro p{font-size:13px;color:var(--muted)}
+html[data-theme] #cube-stage{background:radial-gradient(ellipse at 45% 50%,var(--light),transparent 70%);border-radius:15px;margin-top:14px;min-height:340px}
+html[data-theme] :is(.net-view>span,.cube-legend,#step-status){color:var(--muted);font-size:11px}
+html[data-theme] .cube-legend{gap:13px;margin-bottom:24px}
+html[data-theme] .cube-legend i{width:10px;height:10px}
+html[data-theme] .turn-indicator{background:var(--paper);color:var(--muted);border-color:var(--line);font-size:10px}
+html[data-theme] .turn-indicator.turning{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-size:15px}
+html[data-theme] .move-instruction{background:var(--light);border-color:var(--line);border-left:3px solid var(--accent);padding:20px;gap:17px;min-height:140px}
+html[data-theme] .instruction-move{background:var(--accent);color:var(--accent-ink);min-width:48px}
+html[data-theme] .move-instruction h3{font-size:18px}
+html[data-theme] .move-instruction p{color:var(--ink);font-size:14px;line-height:1.85}
+html[data-theme] .move-instruction small{color:var(--accent);font-size:10px}
+html[data-theme] .move-instruction .instruction-tip{color:var(--muted);font-size:12px}
+html[data-theme] .playback{border-color:var(--line);flex-wrap:wrap;gap:9px}
+html[data-theme] .playback .primary{font-size:12px;min-height:44px;padding:12px 16px}
+html[data-theme] .square{width:44px;min-width:44px;padding:10px;font-size:19px}
+html[data-theme] .speed-label{font-size:10px;color:var(--muted)}
+html[data-theme] .speed-label select{font-size:12px;background:var(--canvas);color:var(--ink);padding:8px;border:1px solid var(--line)}
+html[data-theme] .move-token{background:var(--canvas);color:var(--muted);min-width:38px;height:38px;border:1px solid var(--line);font-size:14px}
+html[data-theme] .move-token.past{background:var(--light);color:var(--accent)}
+html[data-theme] .move-token.current{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+html[data-theme] .field-label{font-size:12px;color:var(--muted)}
+html[data-theme] :is(.trainer-panel>select,.trainer-panel textarea,td select,.hex-field){background:var(--bg);border-color:var(--line);color:var(--ink);font-size:13px;border-radius:8px}
+html[data-theme] .trainer-panel .info-note{background:none;border:0;padding:0;color:var(--muted)}
+html[data-theme] .trainer-panel summary{font-size:13px}
+html[data-theme] .trainer-panel details{border-color:var(--line)}
+html[data-theme] .trainer-panel details code{background:var(--canvas);color:var(--ink);font-size:13px}
+html[data-theme] .button-row button{font-size:11px;min-height:43px;padding:10px 8px}
+html[data-theme] .cube-settings-link{background:var(--light);border-color:var(--line);color:var(--accent);font-size:13px}
+html[data-theme] .cube-settings-link>span:first-child{color:var(--accent)}
+html[data-theme] .cube-settings-link small{color:var(--muted);font-size:11px}
+html[data-theme] .phase-confirm p{font-size:14px}
+html[data-theme] .phase-confirm .primary{font-size:13px}
+html[data-theme] .timer-card{border-radius:20px;padding:30px}
+html[data-theme] #scramble-text{color:var(--ink);font-size:18px;line-height:1.9;letter-spacing:.5px}
+html[data-theme] .timer-display{font-family:'Cascadia Code',Consolas,monospace;font-size:clamp(64px,10vw,130px);font-weight:500;letter-spacing:-.065em;color:var(--ink);margin:20px 0}
+html[data-theme] .timer-display.running{color:var(--accent)}
+html[data-theme] .timer-display.ready{color:var(--success)}
+html[data-theme] .timer-card.is-ready{border-color:var(--success);box-shadow:0 0 0 4px var(--success-bg)}
+html[data-theme] .timer-card.is-ready #timer-hint{color:var(--success)}
+html[data-theme] .timer-card.is-ready #timer-button{background:var(--success);color:var(--bg)}
+html[data-theme] #timer-hint{font-size:12px}
+html[data-theme] .timer-stats span{color:var(--muted);font-size:12px}
+html[data-theme] .timer-stats strong{font-size:30px;font-variant-numeric:tabular-nums}
+html[data-theme] th{background:var(--canvas);color:var(--muted);font-size:11px}
+html[data-theme] td{font-size:13px}
+html[data-theme] td code{color:var(--muted);font-size:11px}
+html[data-theme] .progress-hero{background:var(--light);border-color:var(--line)}
+html[data-theme] .progress-ring{background:conic-gradient(var(--accent) var(--progress),var(--line) 0)}
+html[data-theme] .progress-ring>span{background:var(--light)}
+html[data-theme] :is(.progress-ring small,.progress-card h2 span){color:var(--muted)}
+html[data-theme] .progress-ring small{font-size:11px}
+html[data-theme] .case-dots button{background:var(--canvas);color:var(--muted);border:1px solid var(--line);font-size:12px}
+html[data-theme] .case-dots .learned{background:var(--success-bg);color:var(--success);border-color:var(--success)}
+html[data-theme] .palette-editor>p{font-size:14px}
+html[data-theme] .palette-picker-label strong{font-size:14px}
+html[data-theme] .palette-picker-label small{font-size:11px}
+html[data-theme] .palette-preview-card>p{font-size:13px}
+html[data-theme] .palette-preview-card .info-note{font-size:12px}
+html[data-theme] #palette-feedback{font-size:12px}
+html[data-theme] .palette-actions button{font-size:12px}
+/* Daily curriculum is a reading surface: readable metadata, calm panels. */
+html[data-theme] .plan-overview{background:var(--light);border-color:var(--line);border-radius:20px}
+html[data-theme] .plan-overview h2{font-size:25px}
+html[data-theme] .plan-overview p{font-size:13px}
+html[data-theme] .plan-home-link{background:var(--paper);border-color:var(--line);border-left:4px solid var(--accent);padding:23px 27px}
+html[data-theme] .plan-home-link p{font-size:12px}
+html[data-theme] .plan-home-link a{font-size:13px}
+html[data-theme] .week-nav>a{color:var(--ink);white-space:normal;padding:12px 9px}
+html[data-theme] .week-nav>a:hover{background:var(--hover)}
+html[data-theme] .week-nav>a[aria-current]{background:var(--light);box-shadow:inset 3px 0 var(--accent)}
+html[data-theme] .week-nav .week-number{color:var(--muted);font-size:13px}
+html[data-theme] .week-nav .week-number.finished{color:var(--success)}
+html[data-theme] .week-nav small{color:var(--muted);font-size:9px;letter-spacing:.4px}
+html[data-theme] .week-nav strong{font-size:12px;line-height:1.5}
+html[data-theme] .week-count{font-size:10px}
+html[data-theme] .plan-guide summary{font-size:14px}
+html[data-theme] .plan-guide p,html[data-theme] .plan-guide li{font-size:13px}
+html[data-theme] .plan-toolbar{font-size:12px}
+html[data-theme] .plan-toolbar p{font-size:12px}
+html[data-theme] .plan-toolbar input{font-size:12px}
+html[data-theme] .plan-week-heading>p{font-size:14px}
+html[data-theme] .day-tabs a{padding:14px 3px;border-radius:12px}
+html[data-theme] .day-tabs small{font-size:9px}
+html[data-theme] .day-tabs span{font-size:10px}
+html[data-theme] .day-tabs a[aria-current]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+html[data-theme] .day-tabs a[aria-current] strong{color:inherit}
+html[data-theme] .plan-day{border-radius:18px}
+html[data-theme] .plan-day-meta>span:last-child{font-size:12px}
+html[data-theme] .plan-resource{font-size:12px;min-height:40px}
+html[data-theme] .plan-resources>span{font-size:10px}
+html[data-theme] .plan-cases p{font-size:12px}
+html[data-theme] .plan-cases button{font-size:12px;min-height:40px}
+html[data-theme] .plan-cases button small{font-size:10px}
+html[data-theme] .plan-caution{background:var(--canvas);border-left-color:var(--accent);font-size:12px}
+html[data-theme] .plan-task-check strong{font-size:15px}
+html[data-theme] .plan-task-check small{font-size:12px}
+html[data-theme] .plan-tasks p{font-size:14px;line-height:1.95}
+html[data-theme] .plan-task-check:has(input:checked) .task-number{background:var(--success-bg);color:var(--success)}
+html[data-theme] .plan-criterion{background:var(--light)}
+html[data-theme] .plan-criterion p{font-size:14px}
+html[data-theme] .plan-criterion label{font-size:13px}
+html[data-theme] :is(.plan-rescue summary,.plan-rescue p){font-size:13px}
+html[data-theme] .plan-note-label span{font-size:12px}
+html[data-theme] #plan-note{font-size:14px}
+html[data-theme] :is(.plan-save-status,.plan-day-bottom span){font-size:12px}
+html[data-theme] .plan-gate{background:var(--paper);border-color:var(--line)}
+html[data-theme] .plan-gate p{font-size:13px}
+html[data-theme] .plan-gate small{font-size:12px}
+html[data-theme] .plan-reviews p{font-size:13px}
+html[data-theme] .plan-reviews>small{font-size:12px}
+html[data-theme] .review-row>span{font-size:11px}
+html[data-theme] .review-row>.secondary{font-size:11px}
+@media(min-width:1450px){html[data-theme] .hero h2{font-size:49px}html[data-theme] .hero-copy{padding:44px}html[data-theme] .hero-art>svg{width:350px}}
+@media(max-height:780px) and (min-width:701px){html[data-theme] .sidebar-bottom{min-height:auto;padding-top:24px}html[data-theme] .sidebar-bottom p,html[data-theme] .local-badge{display:none}html[data-theme] .mini-cube{display:none}}
+@media(max-width:1180px){html[data-theme] .sidebar{width:214px;padding-left:12px;padding-right:12px}html[data-theme] .workspace{margin-left:214px}html[data-theme] main{padding:30px}html[data-theme] .topbar{padding:0 30px}html[data-theme] .hero-copy{padding:30px}html[data-theme] .hero h2{font-size:36px}html[data-theme] .hero-art>svg{width:270px}html[data-theme] .hero{grid-template-columns:1.2fr 1fr}html[data-theme] .hero-secondary{font-size:12px}html[data-theme] .stage-card{padding:20px 17px}html[data-theme] .stage-card h3{font-size:16px}html[data-theme] .hero-facts>div{padding:18px;gap:11px}html[data-theme] .hero-facts span{font-size:11px}html[data-theme] .hero-facts strong{font-size:27px}html[data-theme] .trainer-layout{grid-template-columns:minmax(0,1fr) 270px}}
+@media(max-width:1000px){html[data-theme] .plan-roadmap{border-radius:12px}.plan-layout{gap:22px}}
+@media(max-width:950px){html[data-theme] .sidebar{width:190px}html[data-theme] .workspace{margin-left:190px}html[data-theme] .sidebar nav a{font-size:12px;padding:11px 9px;gap:9px}html[data-theme] .brand{margin-left:8px;gap:9px;font-size:22px}html[data-theme] .brand-icon{width:37px;height:40px}html[data-theme] .brand-sub{font-size:8px;letter-spacing:3px}html[data-theme] .hero{grid-template-columns:1fr;min-height:0}html[data-theme] .hero-art{min-height:310px}html[data-theme] .hero-copy{padding:30px 32px 0}html[data-theme] .hero h2{font-size:42px}html[data-theme] .hero p{max-width:100%}html[data-theme] .hero-art>svg{width:270px;margin-top:0}html[data-theme] .hero-meta{margin-top:20px}html[data-theme] .label-u{right:15%;top:10px}html[data-theme] .label-f{left:12%;bottom:60px}html[data-theme] .label-r{right:11%;bottom:90px}html[data-theme] .hero-facts>div{display:block;padding:16px}html[data-theme] .hero-facts strong{display:block;margin-bottom:9px}html[data-theme] .hero-facts span{font-size:11px}html[data-theme] .trainer-layout{grid-template-columns:1fr}html[data-theme] .stage-card p{min-height:45px}html[data-theme] .course-layout{grid-template-columns:1fr}html[data-theme] .plan-toolbar{align-items:flex-start}}
+@media(max-width:700px){html[data-theme] .sidebar{position:sticky;top:0;width:100%;padding:14px 16px 0;overflow:visible;background:var(--paper);backdrop-filter:none}html[data-theme] .workspace{margin-left:0}html[data-theme] .brand{margin:0 0 13px;font-size:19px;gap:9px}html[data-theme] .brand-icon{width:30px;height:32px;border-radius:9px;box-shadow:none}.brand-icon svg{width:23px;height:25px}html[data-theme] .brand-sub{font-size:9px;margin-left:8px;letter-spacing:2px}html[data-theme] .sidebar nav{display:flex;gap:4px;padding-bottom:12px;scrollbar-width:none}html[data-theme] .sidebar nav a{min-height:39px;padding:8px 11px;font-size:11px;gap:7px}html[data-theme] .sidebar nav a>span:first-child{width:17px;height:17px}.sidebar nav svg{width:17px;height:17px}html[data-theme] .sidebar-bottom{display:none}html[data-theme] .topbar{height:55px;padding:0 20px;font-size:11px}html[data-theme] .theme-toggle{font-size:10px;padding:7px 10px;min-height:34px}html[data-theme] main{padding:27px 20px 36px}html[data-theme] h1{font-size:34px}html[data-theme] .eyebrow{font-size:9px;letter-spacing:1.3px}html[data-theme] .page-heading{flex-wrap:wrap;gap:17px;margin-bottom:24px}html[data-theme] .page-heading p{font-size:13px}html[data-theme] .hero{border-radius:20px;grid-template-columns:1fr}html[data-theme] .hero-copy{padding:28px 26px 0}html[data-theme] .hero h2{font-size:38px;margin-top:21px}html[data-theme] .hero p{font-size:14px}html[data-theme] .hero .primary{font-size:13px;padding:13px 16px}html[data-theme] .hero-art{min-height:285px}html[data-theme] .hero-art>svg{width:245px;max-width:80%;margin:0 0 18px}html[data-theme] .art-label{display:none}html[data-theme] .art-caption{display:block;font-size:9px;bottom:19px}html[data-theme] .orbit{width:230px;height:230px}html[data-theme] .orbit-two{width:285px;height:285px}html[data-theme] .hero-meta{display:flex;font-size:10px;gap:18px}html[data-theme] .hero-facts{gap:8px;margin-top:13px;margin-bottom:24px}html[data-theme] .hero-facts>div{padding:14px 12px;border-radius:12px}html[data-theme] .hero-facts strong{font-size:25px}html[data-theme] .hero-facts span{font-size:10px}html[data-theme] .plan-home-link{padding:21px;gap:13px}html[data-theme] .plan-home-link strong{font-size:18px}html[data-theme] .overview-strip{padding:18px;gap:12px;flex-wrap:wrap}html[data-theme] .overview-strip strong{font-size:12px}html[data-theme] .overview-strip p{font-size:11px}html[data-theme] .overview-strip>div:first-child{min-width:155px}html[data-theme] .overview-strip>.progress-line{min-width:40px}html[data-theme] .section-heading{align-items:flex-start}html[data-theme] .section-heading h2{font-size:23px}html[data-theme] .section-heading p{font-size:12px}html[data-theme] .section-heading>a{font-size:11px;white-space:nowrap}html[data-theme] .stage-card{padding:18px 16px}html[data-theme] .stage-card h3{font-size:16px}html[data-theme] .stage-en{font-size:8px;letter-spacing:.6px}html[data-theme] .stage-card p{font-size:12px;min-height:66px}html[data-theme] .stage-card .stage-symbol{margin:18px 0}html[data-theme] footer{padding:20px;font-size:10px}html[data-theme] .practice-callout p{font-size:13px}html[data-theme] .practice-art{display:none}html[data-theme] .lesson-row{padding:20px 17px;gap:13px}html[data-theme] .lesson-info strong{font-size:14px}html[data-theme] .lesson-info>span{font-size:11px}html[data-theme] .algorithm-grid{grid-template-columns:1fr}html[data-theme] .alg-card{padding:22px}html[data-theme] .alg-diagram{max-width:260px}html[data-theme] .alg-title h3{font-size:22px}html[data-theme] .alg-card>code{min-height:0;font-size:14px}html[data-theme] .search-label{min-width:100%;order:2}html[data-theme] .check{font-size:12px}html[data-theme] .info-note{font-size:13px}html[data-theme] dialog{padding:30px 22px}html[data-theme] .lesson-section p{font-size:14px}html[data-theme] .lesson-section h3{font-size:18px}html[data-theme] .trainer-steps{padding:17px 14px;gap:10px}html[data-theme] .trainer-steps strong{font-size:12px}html[data-theme] .trainer-steps small{font-size:10px}html[data-theme] .trainer-steps>div{gap:9px}html[data-theme] .trainer-steps>div>span{width:28px;height:28px}html[data-theme] .simulator{padding:17px}html[data-theme] .simulator-top{flex-direction:row;align-items:center}html[data-theme] #cube-stage{min-height:280px}.iso-view{width:57%}.net-view{width:43%}html[data-theme] .net-view>span{font-size:10px}html[data-theme] .cube-legend{font-size:10px;gap:10px}html[data-theme] .move-instruction{padding:16px;gap:12px;flex-wrap:wrap}html[data-theme] .move-instruction h3{font-size:17px}html[data-theme] .move-instruction p{font-size:13px}html[data-theme] .playback .primary{font-size:11px;padding:12px}html[data-theme] .square{width:40px;min-width:40px}html[data-theme] .timer-card{padding:22px 17px}html[data-theme] #scramble-text{font-size:15px}html[data-theme] .timer-display{font-size:clamp(54px,17vw,100px);letter-spacing:-.065em}html[data-theme] .timer-stats strong{font-size:24px}html[data-theme] .timer-stats span{font-size:10px}html[data-theme] .palette-editor>p{font-size:13px}html[data-theme] .palette-picker-label strong{font-size:13px}html[data-theme] .palette-picker-label small{font-size:10px}html[data-theme] .hex-field{font-size:12px;width:80px}html[data-theme] .palette-preview-card .info-note{font-size:12px}html[data-theme] .plan-overview h2{font-size:23px}html[data-theme] .plan-toolbar p{font-size:11px}html[data-theme] .plan-roadmap>select{font-size:13px}html[data-theme] .day-tabs{gap:5px}html[data-theme] .day-tabs a{padding:12px 2px}html[data-theme] .day-tabs small{font-size:8px}html[data-theme] .day-tabs span{font-size:9px}html[data-theme] .plan-day-meta>span:last-child{font-size:10px}html[data-theme] .plan-task-check strong{font-size:14px}html[data-theme] .plan-task-check small{font-size:11px}html[data-theme] .plan-week-heading{scroll-margin-top:130px}html[data-theme] .plan-day-bottom .primary{font-size:13px}}
+@media(prefers-reduced-motion:reduce){html[data-theme] :is(.primary,.secondary,.stage-card,.lesson-row){transition:none}html[data-theme] :is(.primary:hover,.stage-card:hover){transform:none}}
